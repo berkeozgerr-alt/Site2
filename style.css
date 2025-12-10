@@ -1,0 +1,164 @@
+/* ================================== */
+/* CSS (STİL) KODLARI - BAŞLANGIÇ     */
+/* ================================== */
+
+/* 1. Genel Ayarlar (Bütün Sayfa) */
+body {
+    font-family: Arial, sans-serif; /* Okunabilir, klasik font */
+    background-color: #f4f4f4; /* Açık gri arka plan */
+    color: #333; /* Koyu metin rengi */
+    line-height: 1.6; /* Satırlar arası boşluk */
+    margin: 0; /* Tarayıcının varsayılan kenar boşluğunu sıfırla */
+    padding: 0;
+}
+
+/* 2. Ana Düzen (İçeriği Ortalar) */
+main {
+    width: 80%; /* İçeriğin %80 genişliğinde olsun */
+    max-width: 1200px; /* Çok büyük ekranlarda aşırı genişlemeyi engeller */
+    margin: 20px auto; /* Üst/Alt 20px, Yatayda ortala */
+    padding: 20px;
+}
+
+/* 3. Başlık Alanı (Header) */
+header {
+    background: #333; /* Koyu arka plan */
+    color: #fff; /* Beyaz metin */
+    padding: 1rem 0;
+    text-align: center;
+    position: relative; /* Hamburger butonu için konumlandırma referansı */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+/* 4. Navigasyon (Menü Listesi) */
+nav ul {
+    padding: 0;
+    list-style: none; /* Madde işaretlerini kaldır */
+    text-align: center;
+}
+
+/* Navigasyon Elemanları (Büyük ekranlarda yan yana) */
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    font-weight: bold;
+    transition: color 0.3s; /* Renk değişimine yumuşak geçiş ekle */
+}
+
+nav ul li a:hover {
+    color: #ccc; /* Fare üzerine gelince rengi değiştir */
+}
+
+/* 5. Hamburger Butonu (JS tarafından kontrol edilecek) */
+.menu-button {
+    display: none; /* Büyük ekranlarda butonu gizle */
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2em;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+/* 6. İçerik Kutuları */
+.icerik-kutusu {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd; /* Hafif çerçeve */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Hafif gölge */
+}
+
+.tarih {
+    font-style: italic;
+    color: #777;
+    font-size: 0.9em;
+    margin-top: -10px;
+}
+
+.detay-buton {
+    display: inline-block;
+    background: #5cb85c; /* Yeşil buton */
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.detay-buton:hover {
+    background-color: #4cae4c; /* Hover rengini koyulaştır */
+}
+
+/* 7. Alt Bilgi (Footer) */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #333;
+    color: #fff;
+    margin-top: 20px;
+}
+
+/* ================================== */
+/* 8. MOBİL UYUMLULUK (@media)        */
+/* ================================== */
+
+/* Ekran genişliği 600 piksel ve altındayken uygulanacak stiller */
+@media screen and (max-width: 600px) {
+    
+    /* İçerik genişliğini artırarak kenar boşluğunu azalt */
+    main {
+        width: 95%;
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    /* Mobil butonu göster */
+    .menu-button {
+        display: block; 
+    }
+    
+    /* Navigasyon listesini varsayılan olarak gizle */
+    nav ul {
+        display: none; 
+        background: #444; 
+        padding: 10px 0;
+        margin-top: 10px;
+        width: 100%; /* Tam genişlikte olsun */
+    }
+
+    /* Mobil menü elemanlarını alt alta sırala */
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+    
+    /* JS 'active' sınıfını eklediğinde menüyü göster */
+    .active ul {
+        display: block; 
+    }
+
+    .icerik-kutusu h2 {
+        font-size: 1.5em;
+    }
+}
+
+/* ================================== */
+/* CSS KODLARI - BİTİŞ                */
+/* ================================== */
