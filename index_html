@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tam ve Fonksiyonel Web Sitem</title>
+    
+    <style>
+        /* Genel Ayarlar */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Ana Düzen */
+        main {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        /* Başlık Alanı */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            position: relative; /* Buton yerleşimi için */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        /* Navigasyon (Menü) */
+        nav ul {
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline; /* Büyük ekranlarda yan yana */
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #ccc;
+        }
+
+        /* Hamburger Butonu (JS tarafından kontrol edilecek) */
+        .menu-button {
+            display: none; /* Büyük ekranlarda gizli */
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2em;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        
+        /* İçerik Kutuları */
+        .icerik-kutusu {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .tarih {
+            font-style: italic;
+            color: #777;
+            font-size: 0.9em;
+            margin-top: -10px;
+        }
+
+        .detay-buton {
+            display: inline-block;
+            background: #5cb85c;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+
+        /* Alt Bilgi */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        /* ================================== */
+        /* MOBİL UYUMLULUK (@media)           */
+        /* ================================== */
+        @media screen and (max-width: 600px) {
+            
+            main {
+                width: 95%;
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            /* Mobil butonu göster */
+            .menu-button {
+                display: block; 
+            }
+            
+            /* Navigasyon listesini varsayılan olarak gizle */
+            nav ul {
+                display: none; 
+                background: #444; 
+                padding: 10px 0;
+                margin-top: 10px;
+            }
+
+            /* Mobil menü elemanlarını alt alta sırala */
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+            
+            /* JS aktif hale getirdiğinde menüyü göster */
+            .active ul {
+                display: block; 
+            }
+
+            .icerik-kutusu h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+    </head>
+<body>
+    
+    <header>
+        <h1>Klasik Site Başlığı</h1>
+        <button class="menu-button" onclick="toggleMenu()">☰</button> 
+        
+        <nav id="anaMenu">
+            <ul>
+                <li><a href="#">Ana Sayfa</a></li>
+                <li><a href="#">Hakkımızda</a></li>
+                <li><a href="#">Hizmetler</a></li>
+                <li><a href="#">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="icerik-kutusu">
+            <h2>Web Sitesi Temelleri</h2>
+            <p class="tarih">Güncel Sürüm: 10 Aralık 2025</p>
+            
+            <p>
+                Bu tek dosya, bir web sayfasının temelini oluşturan üç katmanı barındırır: **HTML (Yapı)**, **CSS (Görünüm)** ve **JavaScript (Etkileşim)**.
+                Mobil cihazlarda, butona tıklayarak açılıp kapanan bir menüye sahip olacaksınız.
+            </p>
+            
+            <p>
+                Geliştirmeye devam etmek için bu alanlara kendi içeriklerinizi ekleyebilirsiniz. Unutmayın, bu sadece bir başlangıç iskeletidir!
+            </p>
+            
+            <a href="#" class="detay-buton">Daha Fazla Bilgi</a>
+        </article>
+
+        <article class="icerik-kutusu">
+            <h2>İskeletin Üç Temel Taşı</h2>
+            <ol>
+                <li>**HTML5:** Sayfadaki her şeyi tanımlar.</li>
+                <li>**CSS3:** Renk, boyut, yerleşim (mobil uyumluluk dahil) ayarlarını yapar.</li>
+                <li>**JavaScript (JS):** Menüyü açma/kapama gibi dinamik olayları yönetir.</li>
+            </ol>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Klasik Site Örneği. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            // 'anaMenu' ID'li navigasyon elementini seçeriz.
+            var menu = document.getElementById("anaMenu");
+            
+            // Elementin sınıf listesini kontrol ederiz.
+            // Eğer 'active' sınıfı varsa (açıksa), onu kaldırırız (kapatırız).
+            if (menu.classList.contains("active")) {
+                menu.classList.remove("active");
+            } else {
+                // Eğer 'active' sınıfı yoksa (kapalıysa), onu ekleriz (açarız).
+                menu.classList.add("active");
+            }
+        }
+    </script>
+    </body>
+</html>
